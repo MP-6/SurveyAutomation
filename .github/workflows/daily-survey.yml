@@ -1,24 +1,15 @@
 name: Run Survey Script
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # erlaubt manuelles Triggern
 
 jobs:
   run-survey:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: PowerShell Skript ausführen
         shell: pwsh
         run: |
-          # Execution Policy setzen
           Set-ExecutionPolicy Bypass -Scope Process -Force
-
-          # Prüfen, ob Skript existiert
-          if (Test-Path "./get-Survey_Data.ps1") {
-              Write-Host "Skript gefunden, führe aus..."
-              ./get-Survey_Data.ps1
-          } else {
-              Write-Error "Skript nicht gefunden!"
-          }
+          ./get-Survey_Data.ps1
