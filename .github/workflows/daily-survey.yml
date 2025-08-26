@@ -12,4 +12,4 @@ jobs:
         shell: pwsh
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
-          ./get-Survey_Data.ps1
+          ./sendmail_test.ps1
