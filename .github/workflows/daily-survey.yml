@@ -1,0 +1,15 @@
+name: Run Survey Script
+
+on:
+  workflow_dispatch:  # erlaubt manuelles oder API-getriggtes Starten
+
+jobs:
+  run-survey:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: PowerShell Skript ausführen
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          ./get-Survey_Data.ps1
